@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Content } from './Content';
 import { Animals } from './components/Animals/Animals';
+import { ArrayMethods } from './components/ArrayMethods/ArrayMethods';
 
 export const App = () => {
   const appTextContent = 'World';
@@ -21,7 +22,7 @@ export const App = () => {
 
   return (
     <>
-      <Content textContent={appTextContent} />
+      {/* <Content textContent={appTextContent} />
       <button onClick={handlePersons}>Get names</button>
       <button onClick={handleResetPersons}>Reset names</button>
       {persons &&
@@ -31,7 +32,8 @@ export const App = () => {
           })}
         </ul>
       }
-      <Animals />
+      <Animals /> */}
+      <ArrayMethods />
     </>
   );
 }
