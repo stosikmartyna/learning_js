@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Content } from './Content';
-import { Animals } from './Components/Animals';
+import { Animals } from './components/Animals/Animals';
 
 export const App = () => {
   const appTextContent = 'World';

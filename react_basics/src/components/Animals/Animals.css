@@ -1,0 +1,17 @@
+.animal-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.animal-box {
+    border: 1px solid grey;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.animal-box img {
+    padding-top: 1rem;
+    width: 230px;
+}
