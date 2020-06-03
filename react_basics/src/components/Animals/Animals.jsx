@@ -33,7 +33,21 @@ export const Animals = () => {
                 {animalsArr.map(animal => {
                     return (
                         <div className="animal-box">
-                            <img src={animal.img}/>
+                            <img src={animal.img} alt={`${animal.name}_image`}/>
+                            <h2>{animal.name}</h2>
+                            <h3>{animal.continent}</h3>
+                        </div>
+                    )
+                })}
+            </div>
+            
+            <hr />>
+
+            <div className="animal-container">
+                {animalsArr.filter(animal => animal.continent === 'America').map(animal => {
+                    return (
+                        <div className="animal-box">
+                            <img src={animal.img} alt={`${animal.name}_image`}/>
                             <h2>{animal.name}</h2>
                             <h3>{animal.continent}</h3>
                         </div>
