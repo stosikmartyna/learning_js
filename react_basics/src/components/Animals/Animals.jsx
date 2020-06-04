@@ -1,8 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Animals.css';
 
 export const Animals = () => {
-    const [animal, setAnimal] = useState(undefined)
+    const [animal, setAnimal] = useState(undefined);
+    const [animals, setAnimals] = useState([]);
+
+    useEffect(() => {
+        setAnimals(animalsArr)
+    }, [])
 
     const handleAnimalsChanged = (event) => {
         setAnimal(event.target.value)
@@ -22,6 +27,11 @@ export const Animals = () => {
         {name: 'Cougar', continent: 'America', img: animalsImgs.cougar},
     ]
 
+    const removeAnimal = (animalToRemove) => {
+        const filteredArr = animals.filter(animal => animal.name !== animalToRemove.name)
+        setAnimals(filteredArr)        
+    }
+
     return (
         <>
             <p>{animal}</p>
@@ -30,18 +40,19 @@ export const Animals = () => {
             <hr />
 
             <div className="animal-container">
-                {animalsArr.map(animal => {
+                {animals.map(animal => {
                     return (
                         <div className="animal-box">
-                            <img src={animal.img} alt={`${animal.name}_image`}/>
+                            <img src={animal.img} alt={`${animal.name}_image`} />
                             <h2>{animal.name}</h2>
                             <h3>{animal.continent}</h3>
+                            <button onClick={() => removeAnimal(animal)}>Remove</button>
                         </div>
                     )
                 })}
             </div>
             
-            <hr />>
+            <hr />
 
             <div className="animal-container">
                 {animalsArr.filter(animal => animal.continent === 'America').map(animal => {
