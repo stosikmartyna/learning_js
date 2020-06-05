@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Content } from './Content';
 import { Animals } from './components/Animals/Animals';
 import { ArrayMethods } from './components/ArrayMethods/ArrayMethods';
+import { Hooks } from './components/Hooks/Hooks';
 
 export const App = () => {
   const appTextContent = 'World';
@@ -34,6 +35,7 @@ export const App = () => {
       }
       <Animals />
       <ArrayMethods />
+      <Hooks />
     </>
   );
 }
