@@ -4,6 +4,7 @@ import { Persons } from './components/Persons/Persons';
 import { Animals } from './components/Animals/Animals';
 import { ArrayMethods } from './components/ArrayMethods/ArrayMethods';
 import { Hooks } from './components/Hooks/Hooks';
+import { Counter } from './components/Counter/Counter';
 
 export const App = () => {
   const appTextContent = 'World';
@@ -14,7 +15,8 @@ export const App = () => {
       <Persons />
       <ArrayMethods />
       <Hooks />
-      <Animals />
+      <Counter />
+      {/* <Animals /> */}
     </>
   );
 }
