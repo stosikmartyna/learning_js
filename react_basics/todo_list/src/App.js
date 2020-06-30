@@ -1,34 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export const App = () => {
-  const [todos, setTodos] = useState([]);
-  const [inputValue, setInputValue] = useState('');
-
-  const handleInputValue = (event) => {
-    setInputValue(event.target.value);
+export class App extends React.Component {
+  state = {
+    todos: [],
+    inputValue: '',
   }
 
-  const handleSubmit = () => {
-    setTodos([...todos, inputValue]);
-    setInputValue('');
+  handleInputValue = (event) => {
+    this.setState({inputValue: event.target.value});
   }
 
-  const removeTodo = (todoToRemove) => {
-    const filteredTodos = todos.filter(todo => todo !== todoToRemove)
-    setTodos(filteredTodos)
+  handleSubmit = () => {
+    this.setState({todos: [...this.state.todos, this.state.inputValue]})
+    this.setState({inputValue: ''})
   }
 
-  return (
-    <>
-      <input onChange={handleInputValue} value={inputValue} />
-      <button onClick={handleSubmit}>Add</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo}>
-            <button onClick={() => removeTodo(todo)}>X</button> {todo}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
+  removeTodo = (todoToRemove) => {
+    const filteredTodos = this.state.todos.filter(todo => todo !== todoToRemove)
+    this.setState({todos: filteredTodos})
+  }
+
+  render() {
+    return (
+      <>
+        <input onChange={this.handleInputValue} value={this.state.inputValue} />
+        <button onClick={this.handleSubmit}>Add</button>
+        <ul>
+          {this.state.todos.map((todo) => (
+            <li key={todo}>
+              <button onClick={() => this.removeTodo(todo)}>X</button> {todo}
+            </li>
+          ))}
+        </ul>
+      </>
+    );
+  }
 }
