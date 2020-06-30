@@ -10,6 +10,7 @@ export const App = () => {
 
   const handleSubmit = () => {
     setTodos([...todos, inputValue]);
+    setInputValue('');
   }
 
   const removeTodo = (todoToRemove) => {
@@ -19,7 +20,7 @@ export const App = () => {
 
   return (
     <>
-      <input onChange={handleInputValue}/>
+      <input onChange={handleInputValue} value={inputValue} />
       <button onClick={handleSubmit}>Add</button>
       <ul>
         {todos.map((todo) => (
