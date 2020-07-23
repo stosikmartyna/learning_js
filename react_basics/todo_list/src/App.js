@@ -1,38 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export class App extends React.Component {
-  state = {
-    todos: [],
-    inputValue: '',
+export const App = () => {
+  const [todos, setTodos] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+
+  // wywołanie funkcji useState 
+  // const [stan, funkcja ustawiająca wartość stanu] = useState(stan początkowy)
+  // setInputValue('nowa/przypisana wartość')
+
+  const handleInputValue = (event) => {
+    setInputValue(event.target.value);
   }
 
-  handleInputValue = (event) => {
-    this.setState({inputValue: event.target.value});
+  // funkcja odczytująca wartość inputa poprzez onChange event, która wywołuje funkcję setInputValue (ustawia wartość z inputa jako wartość przechowywaną w stanie) 
+
+  const handleSubmit = () => {
+    setTodos([...todos, inputValue]);
+    setInputValue('');
   }
 
-  handleSubmit = () => {
-    this.setState({todos: [...this.state.todos, this.state.inputValue]})
-    this.setState({inputValue: ''})
+  // funckja wywoływana po wciśnięciu buttona, która wywołuje funkcję setTodos, która spreaduje aktualny stan todos i dopisuje do niego wartość z inputa
+  // funkcja setInputValue zmienia stan inputa na pusty string, czyszcząc wpisaną uprzednio zawartość
+
+  const removeTodo = (todoToRemove) => {
+    const filteredTodos = todos.filter(todo => todo !== todoToRemove)
+    setTodos(filteredTodos)
   }
 
-  removeTodo = (todoToRemove) => {
-    const filteredTodos = this.state.todos.filter(todo => todo !== todoToRemove)
-    this.setState({todos: filteredTodos})
-  }
+  // todoToRemove -
+  // funkcja po przefiltrowaniu tablicy todos usuwa element, który nie spełnia określonego warunku
+  // setTodos ustawia jako stan wynik filtrowania, czyli tablicę bez usuniętego elementu
 
-  render() {
-    return (
-      <>
-        <input onChange={this.handleInputValue} value={this.state.inputValue} />
-        <button onClick={this.handleSubmit}>Add</button>
-        <ul>
-          {this.state.todos.map((todo) => (
-            <li key={todo}>
-              <button onClick={() => this.removeTodo(todo)}>X</button> {todo}
-            </li>
-          ))}
-        </ul>
-      </>
-    );
-  }
+  return (
+    <>
+      <input onChange={handleInputValue} value={inputValue} />
+      <button onClick={handleSubmit}>Add</button>
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo}>
+            <button onClick={() => removeTodo(todo)}>X</button> {todo}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }

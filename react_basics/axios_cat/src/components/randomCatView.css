@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(206, 214, 247);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.main_container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main_container h1 {
+    color: rgb(14, 33, 109);
+}
+
+.main_container img {
+    box-shadow: 2px 3px 10px grey;
+    margin-bottom: 1rem;
+    max-width: 30%;
+}
+
+.main_container button {
+    background-color: rgb(14, 33, 109);
+    border: none;
+    border-radius: 3px;
+    box-shadow: 2px 3px 10px rgb(216, 213, 213);
+    color: white;
+    cursor: pointer;
+    padding: .5rem 1.5rem;
+}
+
+.main_container button:hover {
+    background-color: rgb(9, 21, 68);
+}
