@@ -1,10 +1,4 @@
 import React from 'react';
-import { RandomCatView } from './components/RandomCatView';
+import { RandomCatView } from './components/RandomCatView/RandomCatView';
 
-export const App = () => {
-  return (
-    <div className="App">
-      <RandomCatView />
-    </div>
-  );
-}
+export const App = () => <RandomCatView />
