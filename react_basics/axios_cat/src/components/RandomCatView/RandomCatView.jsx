@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Spinner } from '../Spinner/Spinner';
 import './randomCatView.css'; 
 
+const BASE_PATH = 'https://api.thecatapi.com/v1';
+
 export const RandomCatView = () => {
     const [catData, setCatData] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
@@ -12,7 +14,7 @@ export const RandomCatView = () => {
     const fetchCatData = async() => { 
         setIsFetching(true);
         try {
-            const response = await axios.get('https://api.thecatapi.com/v1/images/search', {params: {size: 'small'}})
+            const response = await axios.get(`${BASE_PATH}/images/search`, {params: {size: 'small'}})
             setCatData(response.data)
         } catch (error) {
             console.error(error)
@@ -23,7 +25,7 @@ export const RandomCatView = () => {
 
     const fetchCatBreeds = async() => {
         try {
-            const response = await axios.get('https://api.thecatapi.com/v1/breeds')
+            const response = await axios.get(`${BASE_PATH}/breeds`)
             setCatBreeds(response.data)
         } catch (error) {
             console.error(error)
@@ -50,15 +52,16 @@ export const RandomCatView = () => {
                     return <img src={cat.url} alt="cat_image" key={cat.id} /> 
                 })
             }
-            <label>Cat breeds</label>
-            <select name="cat_breeds" onChange={handleInputChange}>
-                <option>Choose breed</option>
-                {catBreeds.map(breed => {
-                    return <option value={breed.name} key={breed.id}>{breed.name}</option>
-                })}
-            </select>
-
-            <p>{selectedCat && selectedCat.description}</p>
+            <div className="main_container_breeds">
+                <h2>Cat breeds</h2>
+                <select name="cat_breeds" onChange={handleInputChange}>
+                    <option>Choose breed</option>
+                    {catBreeds.map(breed => {
+                        return <option value={breed.name} key={breed.id}>{breed.name}</option>
+                    })}
+                </select>
+                <p>{selectedCat && selectedCat.description}</p>
+            </div>
         </div>
     )
 }
