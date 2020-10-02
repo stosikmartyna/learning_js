@@ -1,0 +1,18 @@
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.view {
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 70vw;
+}
+
+.view h1 {
+    font-weight: 400;
+    text-align: center;
+}
