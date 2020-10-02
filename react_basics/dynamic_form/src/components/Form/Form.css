@@ -20,7 +20,6 @@ input {
 select {
     border: 1px solid #c2c3c4;
     border-radius: 3px;
-
 }
 
 button {
@@ -29,6 +28,7 @@ button {
     border-radius: 3px;
     box-shadow: 0 3px 10px 5px rgba(240, 240, 240, 0.658);
     color: rgb(38, 44, 49);
+    cursor: pointer;
     outline: none;
     padding: .3rem .7rem;
     max-width: max-content;
@@ -36,5 +36,4 @@ button {
 
 button:hover {
     background-color: #c2c3c4;
-    cursor: pointer;
 }
