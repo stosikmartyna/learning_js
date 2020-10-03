@@ -1,27 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Form.css';
 
-export const Form = () => {
-    const [inputValue, setInputValue] = useState('');
-
-    const handleInputValue = (event) => {
-        setInputValue({...inputValue, [event.target.id]: event.target.value});
-    }
-
+export const Form = ({onInputsValues, onProductsSubmit}) => {
     return (
         <>
             <h2>Dodaj produkt</h2>
             <div className="form"> 
-                <input id="product" type="text" placeholder="Produkt" onChange={handleInputValue}/>
-                <input id="quantity" type="number" placeholder="Ilość" onChange={handleInputValue}/>
-                <input id="nettoPrice" type="number" placeholder="Cena netto" onChange={handleInputValue}/>
-                <select id="vat" name="vat" onChange={handleInputValue}>
+                <input id="product" type="text" placeholder="Produkt" onChange={onInputsValues}/>
+                <input id="quantity" type="number" placeholder="Ilość" onChange={onInputsValues}/>
+                <input id="nettoPrice" type="number" placeholder="Cena netto" onChange={onInputsValues}/>
+                <select id="vat" name="vat" onChange={onInputsValues}>
                     <option value="">VAT</option>
-                    <option value="vat8">8%</option>
-                    <option value="vat23">23%</option>
-                    <option value="vat32">32%</option>
+                    <option value={8}>8%</option>
+                    <option value={23}>23%</option>
+                    <option value={32}>32%</option>
                 </select>
-                <button>Dodaj</button>
+                <button onClick={onProductsSubmit}>Dodaj</button>
             </div>
         </>
     )

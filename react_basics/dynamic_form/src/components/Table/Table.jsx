@@ -1,7 +1,7 @@
 import React from 'react';
 import './Table.css';
 
-export const Table = () => {
+export const Table = ({products}) => {
     return (
         <table>
           <thead>
@@ -15,22 +15,18 @@ export const Table = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>  
-              <td>Jogurt</td>
-              <td>2</td>  
-              <td>1,5</td>  
-              <td>8%</td>  
-              <td>2</td>  
-            </tr>
-            <tr>
-              <td>2</td>  
-              <td>Ser</td>
-              <td>3</td>  
-              <td>2,8</td>  
-              <td>8%</td>  
-              <td>3</td>  
-            </tr>
+            {products.map((product, index) => {
+              return (
+                <tr key={index}>
+                  <td>{index + 1}</td>  
+                  <td>{product.product}</td>
+                  <td>{product.quantity}</td>  
+                  <td>{product.nettoPrice}</td>
+                  <td>{product.vat}</td>  
+                  <td>{Number(product.nettoPrice) + (product.nettoPrice * product.vat / 100)}</td>
+                </tr>
+              )
+            })}
           </tbody>            
         </table>
     )
