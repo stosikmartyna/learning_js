@@ -1,12 +1,20 @@
 import React from 'react';
 import './Form.css';
 
-export const Form = ({onInputsValues, onProductsSubmit}) => {
+export const Form = ({inputsValues, onInputsValues, onProductsSubmit}) => {
+
+    const isValid = () => {
+        return !!inputsValues.productName
+            && !!inputsValues.quantity
+            && !!inputsValues.nettoPrice
+            && !!inputsValues.vat
+    }
+
     return (
         <>
             <h2>Dodaj produkt</h2>
             <div className="form"> 
-                <input id="product" type="text" placeholder="Produkt" onChange={onInputsValues}/>
+                <input id="productName" type="text" placeholder="Produkt" onChange={onInputsValues}/>
                 <input id="quantity" type="number" placeholder="Ilość" onChange={onInputsValues}/>
                 <input id="nettoPrice" type="number" placeholder="Cena netto" onChange={onInputsValues}/>
                 <select id="vat" name="vat" onChange={onInputsValues}>
@@ -15,7 +23,7 @@ export const Form = ({onInputsValues, onProductsSubmit}) => {
                     <option value={23}>23%</option>
                     <option value={32}>32%</option>
                 </select>
-                <button onClick={onProductsSubmit}>Dodaj</button>
+                <button onClick={onProductsSubmit} disabled={!isValid()}>Dodaj</button>
             </div>
         </>
     )

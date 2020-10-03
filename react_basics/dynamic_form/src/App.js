@@ -8,19 +8,18 @@ export const App = () => {
   const [products, setProducts] = useState([]);
   
   const handleInputsValues = (event) => {
-      setInputsValues({...inputsValues, [event.target.id]: event.target.value});
+    setInputsValues({...inputsValues, [event.target.id]: event.target.value});    
   }
 
   const handleProductsSubmit = () => {
     setProducts([...products, inputsValues]);
-    setInputsValues('');
   }
 
   return (
     <div className="view">
       <h1>Dynamiczny formularz React</h1>
-      <Form onInputsValues={handleInputsValues} onProductsSubmit={handleProductsSubmit} />
-      <Table products={products}/>
+      <Form inputsValues={inputsValues} onInputsValues={handleInputsValues} onProductsSubmit={handleProductsSubmit} />
+      <Table products={products} />
     </div>
   );
 }

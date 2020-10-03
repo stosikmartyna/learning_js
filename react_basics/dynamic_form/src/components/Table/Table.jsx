@@ -19,7 +19,7 @@ export const Table = ({products}) => {
               return (
                 <tr key={index}>
                   <td>{index + 1}</td>  
-                  <td>{product.product}</td>
+                  <td>{product.productName}</td>
                   <td>{product.quantity}</td>  
                   <td>{product.nettoPrice}</td>
                   <td>{product.vat}</td>  
