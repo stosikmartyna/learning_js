@@ -8,11 +8,24 @@ export const App = () => {
   const [products, setProducts] = useState([]);
   
   const handleInputsValues = (event) => {
+    event.preventDefault();
     setInputsValues({...inputsValues, [event.target.id]: event.target.value});    
+  }
+
+  const clearForm = () => {
+    setInputsValues(
+      {
+        productName: '',
+        quantity: '',
+        nettoPrice: '',
+        vat: '',
+      }
+    )
   }
 
   const handleProductsSubmit = () => {
     setProducts([...products, inputsValues]);
+    clearForm();
   }
 
   return (
