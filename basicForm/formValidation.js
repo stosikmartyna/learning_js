@@ -42,53 +42,66 @@ const checkInputs = () => {
 	const numberValue = number.value.trim();
 	const isFileUploaded = !!photoInput.files.length;
         
-	if (nameValue === '') {
-		setInputError(name, 'To pole jest wymagane.');
-	} else {
-		removeInputError(name);
-	}
+	nameValue === ''
+		? setInputError(name, 'To pole jest wymagane.')
+		: removeInputError(name)
 	
-	if (emailValue === '') {
-		setInputError(email, 'To pole jest wymagane.');
-	} else if (!isEmail(emailValue)) {
-		setInputError(email, 'Niepoprawny e-mail');
-	} else {
-		removeInputError(email);
-	}
+	emailValue === ''
+		? setInputError(email, 'To pole jest wymagane.')
+		: !isEmail(emailValue)
+			? setInputError(email, 'Niepoprawny e-mail')
+			: removeInputError(email)
 	
-	if (phoneValue === '') {
-		setInputError(phone, 'To pole jest wymagane.');
-	} else {
-		removeInputError(phone);
-	}
+	phoneValue === ''
+		? setInputError(phone, 'To pole jest wymagane.')
+		: removeInputError(phone)
 	
-    if (numberValue === '') {
-		setInputError(number, 'To pole jest wymagane.');
-    } else if (numberValue.length < 4) {
-        setInputError(number, 'Numer musi zawierać co najmniej 4 cyfry.');
-    } else if (numberValue.length > 6) {
-        setInputError(number, 'Numer musi zawierać maksymalnie 6 cyfr.');
-    } else {
-		removeInputError(number);
-    }
+    numberValue === ''
+		? setInputError(number, 'To pole jest wymagane.')
+    	: numberValue.length < 4
+        	? setInputError(number, 'Numer musi zawierać co najmniej 4 cyfry.')
+    		: numberValue.length > 6
+        		? setInputError(number, 'Numer musi zawierać maksymalnie 6 cyfr.')
+				: removeInputError(number)
 	
-	if (!isFileUploaded) {
-		setInputError(photoInput, 'To pole jest wymagane.');
-    } else {
-        removeInputError(photoInput);
-    }
+	!isFileUploaded
+		? setInputError(photoInput, 'To pole jest wymagane.')
+    	: removeInputError(photoInput)
 
-    if (!option_1.checked) {
-        setInputError(option_1, 'To pole jest wymagane.');
-    } else {
-        removeInputError(option_1);
-    }
+    !option_1.checked
+        ? setInputError(option_1, 'To pole jest wymagane.')
+		: removeInputError(option_1)
 
-    if (!option_2.checked) {
-        setInputError(option_2, 'To pole jest wymagane.');
-    } else {
-        removeInputError(option_2);
-    }
+    !option_2.checked
+        ? setInputError(option_2, 'To pole jest wymagane.')
+    	: removeInputError(option_2)
+	
+	const validate = () => {
+		return nameValue 
+			&& emailValue 
+			&& isEmail(emailValue) 
+			&& phoneValue 
+			&& numberValue 
+			&& !(numberValue.length < 4 || numberValue.length > 6) 
+			&& photoInput.files[0].name 
+			&& option_1.checked 
+			&& option_2.checked
+	}
+
+	const submitForm = () => {
+		alert('wysłano');
+		console.log({
+			name: nameValue,
+			email: emailValue,
+			phone: phoneValue,
+			number: numberValue,
+			file: photoInput.files[0].name,
+			option1: option_1.checked,
+			option2: option_2.checked,
+		})
+	}
+	
+	validate() && submitForm();
 }
 
 const setInputError = (input, message) => {
