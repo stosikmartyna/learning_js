@@ -106,7 +106,7 @@ const checkInputs = () => {
 
 const setInputError = (input, message) => {
 	const formControl = input.parentElement;
-	const errorText = formControl.querySelector('p');
+	const errorText = formControl.querySelector('span');
 	formControl.classList.add('error');
 	errorText.innerText = message;
 }

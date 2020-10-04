@@ -10,44 +10,44 @@
     <div class="container">
         <h1>Formularz JavaScript</h1>
         <form id="form" class="form">
-            <div class="form-input">
+            <div>
                 <label for="name">Nazwa</label>
-                <input id="name" placeholder="Nazwa" />
-                <p class="hidden">Error</p>
+                <input class="form__input" id="name" placeholder="Nazwa" />
+                <span class="hidden">Error</span>
             </div>
-            <div class="form-input">
+            <div>
                 <label for="email">E-mail</label>
-                <input id="email" placeholder="E-mail">
-                <p class="hidden">Error</p>
+                <input class="form__input" id="email" placeholder="E-mail">
+                <span class="hidden">Error</span>
             </div>
-            <div class="form-input">
-                <label for="phone">Telefon</label>
-                <input id="phone" type="tel" placeholder="Telefon">
-                <p class="hidden">Error</p>
+            <div>
+                <label class="form__label" for="phone">Telefon</label>
+                <input class="form__input" id="phone" type="tel" placeholder="Telefon">
+                <span class="hidden">Error</span>
             </div>
-            <div class="form-input">
+            <div>
                 <label for="number">Numer</label>
-                <input id="number" type="number" placeholder="Numer" min="0">
-                <p class="hidden">Error</p>
+                <input class="form__input" id="number" type="number" placeholder="Numer" min="0">
+                <span class="hidden">Error</span>
             </div>
-            <div class="form-input">
+            <div>
                 <label for="photo">Zdjęcie</label>
-                <input id="photo" type="file" accept=".jpg, .jpeg, .png" size="10000000">
-                <div class="form-input__preview">
-                    <span class="form-input__preview__text">Image Preview</span>
-                    <img src="" alt="img preview" class="form-input__preview__img" />
+                <input class="form__input" id="photo" type="file" accept=".jpg, .jpeg, .png" size="10000000">
+                <span class="hidden">Error</span>
+                <div class="form-image__preview">
+                    <p class="form-image__preview__text">Image Preview</span>
+                    <img class="form-image__preview__img" src="" alt="img preview" />
                 </div>
-                <p class="hidden">Error</p>
             </div>
-            <div class="form-input">
-                <input id="option_1" type="checkbox">
+            <div>
+                <input id="option_1" type="checkbox" >
                 <label for="option_1">Akceptuję warunki</label>
-                <p class="hidden">Error</p>
+                <span class="hidden">Error</span>
             </div>
-            <div class="form-input">
+            <div>
                 <input id="option_2" type="checkbox">
                 <label for="option_2">Wyrażam zgodę</label>
-                <p class="hidden">Error</p>
+                <span class="hidden">Error</span>
             </div>  
             <button>Wyślij</button>
         </form>
