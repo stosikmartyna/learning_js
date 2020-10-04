@@ -4,8 +4,8 @@ const email = document.getElementById('email');
 const phone = document.getElementById('phone');
 const number = document.getElementById('number');
 const photo = document.getElementById('photo');
-const checkbox_1 = document.getElementById('checkbox_1');
-const checkbox_2 = document.getElementById('checkbox_2');
+const option_1 = document.getElementById('option_1');
+const option_2 = document.getElementById('option_2');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -16,8 +16,8 @@ const checkInputs = () => {
 	const nameValue = name.value.trim();
 	const emailValue = email.value.trim();
 	const phoneValue = phone.value.trim();
-	const numberValue = number.value.trim();
-	
+    const numberValue = number.value.trim();
+        
 	if (nameValue === '') {
 		setInputError(name, 'To pole jest wymagane.');
 	} else {
@@ -46,7 +46,19 @@ const checkInputs = () => {
         setInputError(number, 'Numer musi zawierać maksymalnie 6 cyfr.');
     } else {
 		removeInputError(number);
-	}
+    }
+    
+    if (!option_1.checked) {
+        setInputError(option_1, 'To pole jest wymagane.');
+    } else {
+        removeInputError(option_1);
+    }
+
+    if (!option_2.checked) {
+        setInputError(option_2, 'To pole jest wymagane.');
+    } else {
+        removeInputError(option_2);
+    }
 }
 
 const setInputError = (input, message) => {

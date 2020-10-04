@@ -52,7 +52,7 @@ body {
 	border-color: #2ecc71;
 }
 
-.form-input p {
+.hidden {
     visibility: hidden;
 }
 
