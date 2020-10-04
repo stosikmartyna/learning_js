@@ -13,42 +13,45 @@
             <div class="form-input">
                 <label for="name">Nazwa</label>
                 <input id="name" placeholder="Nazwa" />
-                <p class='hidden'>Error</p>
+                <p class="hidden">Error</p>
             </div>
             <div class="form-input">
                 <label for="email">E-mail</label>
                 <input id="email" placeholder="E-mail">
-                <p class='hidden'>Error</p>
+                <p class="hidden">Error</p>
             </div>
             <div class="form-input">
                 <label for="phone">Telefon</label>
                 <input id="phone" type="tel" placeholder="Telefon">
-                <p class='hidden'>Error</p>
+                <p class="hidden">Error</p>
             </div>
             <div class="form-input">
                 <label for="number">Numer</label>
                 <input id="number" type="number" placeholder="Numer" min="0">
-                <p class='hidden'>Error</p>
+                <p class="hidden">Error</p>
             </div>
             <div class="form-input">
                 <label for="photo">Zdjęcie</label>
-                <input id="photo" type="file" accept="jpg/png">
-                <p class='hidden'>Error</p>
+                <input id="photo" type="file" accept=".jpg, .jpeg, .png" size="10000000">
+                <div class="form-input__preview">
+                    <span class="form-input__preview__text">Image Preview</span>
+                    <img src="" alt="img preview" class="form-input__preview__img" />
+                </div>
+                <p class="hidden">Error</p>
             </div>
             <div class="form-input">
                 <input id="option_1" type="checkbox">
                 <label for="option_1">Akceptuję warunki</label>
-                <p class='hidden'>Error</p>
+                <p class="hidden">Error</p>
             </div>
             <div class="form-input">
                 <input id="option_2" type="checkbox">
                 <label for="option_2">Wyrażam zgodę</label>
-                <p class='hidden'>Error</p>
+                <p class="hidden">Error</p>
             </div>  
-            <button>Zapisz</button>
+            <button>Wyślij</button>
         </form>
     </div>
-
-    <script src="main.js"></script>
+    <script src="formValidation.js"></script>
 </body>
 </html>

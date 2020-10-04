@@ -3,7 +3,10 @@ const name = document.getElementById('name');
 const email = document.getElementById('email');
 const phone = document.getElementById('phone');
 const number = document.getElementById('number');
-const photo = document.getElementById('photo');
+const photoInput = document.getElementById('photo');
+const photoPreviewWrapper = document.querySelector('.form-input__preview');
+const photoDefaultText = document.querySelector('.form-input__preview__text');
+const photoImgPreview = document.querySelector('.form-input__preview__img');
 const option_1 = document.getElementById('option_1');
 const option_2 = document.getElementById('option_2');
 
@@ -12,11 +15,32 @@ form.addEventListener('submit', (e) => {
     checkInputs();
 });
 
+photoInput.addEventListener('change', () => {
+	const file = photoInput.files[0];
+
+	if (file) {
+		const reader = new FileReader();
+		
+		photoDefaultText.style.display = 'none';
+		photoImgPreview.style.display = 'block';
+
+		reader.addEventListener('load', function() {
+			photoImgPreview.setAttribute('src', this.result);
+		})
+
+		reader.readAsDataURL(file);
+	} else {
+		photoDefaultText.style.display = 'block';
+		photoImgPreview.style.display = 'none';
+	}
+})
+
 const checkInputs = () => {
 	const nameValue = name.value.trim();
 	const emailValue = email.value.trim();
 	const phoneValue = phone.value.trim();
-    const numberValue = number.value.trim();
+	const numberValue = number.value.trim();
+	const isFileUploaded = !!photoInput.files.length;
         
 	if (nameValue === '') {
 		setInputError(name, 'To pole jest wymagane.');
@@ -47,7 +71,13 @@ const checkInputs = () => {
     } else {
 		removeInputError(number);
     }
-    
+	
+	if (!isFileUploaded) {
+		setInputError(photoInput, 'To pole jest wymagane.');
+    } else {
+        removeInputError(photoInput);
+    }
+
     if (!option_1.checked) {
         setInputError(option_1, 'To pole jest wymagane.');
     } else {
@@ -67,6 +97,7 @@ const setInputError = (input, message) => {
 	formControl.classList.add('error');
 	errorText.innerText = message;
 }
+
 const removeInputError = (input) => {
 	const formControl = input.parentElement;
 	formControl.classList.remove('error');
