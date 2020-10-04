@@ -1,9 +1,19 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
     padding: 0;
+}
+
+.container {
+    border: 1px solid grey;
+    border-radius: 6px;
     margin: 0 auto;
+    padding: .5rem 0;
+    width: 600px;
+}
+
+.container h1 {
     text-align: center;
-    width: 80vw;
 }
 
 .form {
@@ -12,10 +22,44 @@ body {
     flex-direction: column;
 }
 
-.form input {
+.form button {
+    background-color: lightgrey;
     border: none;
-    border-bottom: 1px solid #c2c3c4;
-    margin-bottom: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: .3rem .5rem;
+}
+
+.form button:hover {
+    background-color: rgb(161, 161, 161);
+}
+
+.form-input input {
+    border: 1px solid #c2c3c4;
+    border-radius: 3px;
+    font-size: 1rem;
     outline: none;
+    padding: .3rem .5rem;
     width: 250px;
 }
+
+.form-input.error input {
+	border-color: #f55746;
+}
+
+.form-input.success input {
+	border-color: #2ecc71;
+}
+
+.form-input p {
+    visibility: hidden;
+}
+
+.form-input.error p {
+    color: #f55746;
+    font-size: .8rem;
+    text-align: center;
+    visibility: visible;
+}
+

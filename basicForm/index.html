@@ -4,20 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Basic form</title>
+    <title>Formularz JavaScript</title>
 </head>
 <body>
-    <h1>Basic form in JavaScript</h1>
-    <div class="form">
-        <input id="name" type="text" placeholder="Nazwa" />
-        <input id="mail" type="email" placeholder="E-mail">
-        <input id="phone" type="tel" placeholder="Telefon">
-        <input id="number" type="number" placeholder="Numer">
-        <input id="photo" type="file" placeholder="Zdjęcie" accept="jpg/png">
-        <input id="checkbox_1" type="checkbox">
-        <input id="checkbox_2" type="checkbox">
+    <div class="container">
+        <h1>Formularz JavaScript</h1>
+        <form id="form" class="form">
+            <div class="form-input">
+                <label for="name">Nazwa</label>
+                <input id="name" placeholder="Nazwa" />
+                <p>Error</p>
+            </div>
+            <div class="form-input">
+                <label for="email">E-mail</label>
+                <input id="email" placeholder="E-mail">
+                <p>Error</p>
+            </div>
+            <div class="form-input">
+                <label for="phone">Telefon</label>
+                <input id="phone" type="tel" placeholder="Telefon">
+                <p>Error</p>
+            </div>
+            <div class="form-input">
+                <label for="number">Numer</label>
+                <input id="number" type="number" placeholder="Numer" min="0">
+                <p>Error</p>
+            </div>
+            <div class="form-input">
+                <label for="photo">Zdjęcie</label>
+                <input id="photo" type="file" accept="jpg/png">
+                <p>Error</p>
+            </div>
+            <div class="form-input">
+                <label for="checkbox_1">Checkbox 1</label>
+                <input id="checkbox_1" type="checkbox">
+            </div>
+            <div class="form-input">
+                <label for="checkbox_2">Checkbox 2</label>
+                <input id="checkbox_2" type="checkbox">
+            </div>  
+            <button>Zapisz</button>
+        </form>
     </div>
-    <button>Zapis danych</button>
+
     <script src="main.js"></script>
 </body>
 </html>
