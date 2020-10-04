@@ -4,9 +4,9 @@ const email = document.getElementById('email');
 const phone = document.getElementById('phone');
 const number = document.getElementById('number');
 const photoInput = document.getElementById('photo');
-const photoPreviewWrapper = document.querySelector('.form-input__preview');
-const photoDefaultText = document.querySelector('.form-input__preview__text');
-const photoImgPreview = document.querySelector('.form-input__preview__img');
+const photoPreviewWrapper = document.querySelector('.form-image__preview');
+const photoDefaultText = document.querySelector('.form-image__preview__text');
+const photoImgPreview = document.querySelector('.form-image__preview__img');
 const option_1 = document.getElementById('option_1');
 const option_2 = document.getElementById('option_2');
 
@@ -15,8 +15,8 @@ form.addEventListener('submit', (e) => {
     checkInputs();
 });
 
-photoInput.addEventListener('change', () => {
-	const file = photoInput.files[0];
+photoInput.addEventListener('change', function() {
+	const file = this.files[0];
 
 	if (file) {
 		const reader = new FileReader();
@@ -88,17 +88,26 @@ const checkInputs = () => {
 			&& option_2.checked
 	}
 
+	const values = {
+		name: nameValue,
+		email: emailValue,
+		phone: phoneValue,
+		number: numberValue,
+		file: photoInput.files[0].name,
+		option1: option_1.checked,
+		option2: option_2.checked,
+	}
+
 	const submitForm = () => {
-		alert('wysłano');
-		console.log({
-			name: nameValue,
-			email: emailValue,
-			phone: phoneValue,
-			number: numberValue,
-			file: photoInput.files[0].name,
-			option1: option_1.checked,
-			option2: option_2.checked,
+		alert('Wysłano poprawnie');
+
+		fetch('http://www.martyna-stosik.com/api-service-endpoint', {
+			method: 'POST',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify(values),
 		})
+			.then(response => console.log(response))
+			.catch(error => console.error('Error:', error))
 	}
 	
 	validate() && submitForm();
