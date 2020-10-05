@@ -54,17 +54,22 @@ body {
     width: 100%;
 }
 
-.form button {
+.form__buttons {
+    display: flex;
+}
+
+.form__buttons button {
     background-color: lightgrey;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     display: block;
     margin: 1rem auto;
+    outline: none;
     padding: .3rem 1rem;
 }
 
-.form button:hover {
+.form__buttons button:hover {
     background-color: rgb(161, 161, 161);
 }
 

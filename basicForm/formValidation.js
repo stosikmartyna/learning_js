@@ -9,11 +9,56 @@ const photoDefaultText = document.querySelector('.form-image__preview__text');
 const photoImgPreview = document.querySelector('.form-image__preview__img');
 const option_1 = document.getElementById('option_1');
 const option_2 = document.getElementById('option_2');
+const downloadCSV = document.getElementById('download_csv');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     checkInputs();
 });
+
+downloadCSV.addEventListener('click', (e) => {
+	e.preventDefault();
+
+	const data = {		
+		name: name.value,
+		email: email.value,
+		phone: phone.value,
+		number: number.value,
+		file: photoInput.files[0] ? photoInput.files[0].name : '',
+		option1: option_1.checked,
+		option2: option_2.checked,
+	}
+	
+	const parseToCSV = () => {
+		const csvRows = [];
+		const headers = Object.keys(data)
+		csvRows.push(headers.join(','));
+	
+		for (const row of [data]) {
+			const values = headers.map(header => {
+				const escaped = row[header].toString().replace(/"/g, '\\"');
+				return `"${escaped}"`;
+			})
+			csvRows.push(values.join(','))
+		}
+		return csvRows.join('\n');
+	}
+
+	const downloadCSV = () => {
+		const csvData = parseToCSV(data);
+		const blob = new Blob([csvData], { type: 'text/csv' });
+		const url = window.URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.setAttribute('hidden', '');
+		a.setAttribute('href', url);
+		a.setAttribute('download', 'formularz.csv');
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a); 
+	}
+
+	downloadCSV();
+})
 
 photoInput.addEventListener('change', function() {
 	const file = this.files[0];
