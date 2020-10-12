@@ -1,7 +1,8 @@
 import React from 'react';
+import { WordCounter } from './WordCounter/WordCounter';
 
 export const App = () => {
   return (
-    <h1>Hello</h1>
+    <WordCounter />
   );
 }
