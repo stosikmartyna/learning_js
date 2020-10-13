@@ -1,6 +1,7 @@
 import React from 'react';
 import { WordCounter } from './WordCounter/WordCounter';
 import { DynamicForm } from './DynamicForm/DynamicForm';
+import { DarkLightToggle } from './DarkLightToggle/DarkLightToggle';
 
 export const App = () => {
   return (
@@ -9,6 +10,7 @@ export const App = () => {
       <hr />
       <DynamicForm />
       <hr />
+      <DarkLightToggle />
     </> 
   );
 }

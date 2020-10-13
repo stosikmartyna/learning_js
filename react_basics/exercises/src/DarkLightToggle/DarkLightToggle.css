@@ -1,0 +1,19 @@
+.container {
+    border-radius: 6px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center; 
+    width: 80vw;
+}
+
+.lightMode {
+    background-color: #f0f0f0;
+    color: #363537;
+    border: 1px solid #FFF;
+}
+
+.darkMode {
+    background-color: #363537;
+    color: #e9ecef;
+    border: 1px solid #6B8096;
+}
