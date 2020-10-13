@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './DynamicForm.css';
 
 const initialState = {
     text: '',
@@ -30,29 +31,39 @@ export const DynamicForm = () => {
         setIsFormSubmitted(true);
         isFormValid && submitValidatedForm();
     }
-            
+
+    const displayInputError = (value) => {
+        const isNotValid = isFormSubmitted && value.trim() === '';
+
+        if (isNotValid) {
+            return <span className="input-error">This field is required</span>
+        }
+    }
+           
     return (
         <>
-            <div>
-                <label>Text</label>
-                <input id="text" type="text" onChange={handleInputChange} value={inputsValues.text} />
-                {isFormSubmitted && inputsValues.text.trim() === '' && <span>This field is required</span>}               
-            </div>
-            <div>
-                <label>Number</label>
-                <input id="number" type="number" onChange={handleInputChange} value={inputsValues.number} />
-                {isFormSubmitted && inputsValues.number.trim() === '' && <span>This field is required</span>}               
-            </div>
-            <div>
-                <label>Mail</label>
-                <input id="mail" type="mail" onChange={handleInputChange} value={inputsValues.mail} />
-                {isFormSubmitted && inputsValues.mail.trim() === '' && <span>This field is required</span>}
-            </div>
-            <div>
-                <label>Password</label>
-                <input id="password" type="password" onChange={handleInputChange} value={inputsValues.password} />
-                {isFormSubmitted && inputsValues.password.trim() === '' && <span>This field is required</span>}        
-            </div>
+            <form>
+                <div className="labeled-input">
+                    <label for="text">Text</label>
+                    <input id="text" type="text" onChange={handleInputChange} value={inputsValues.text} />
+                    {displayInputError(inputsValues.text)}  
+                </div>
+                <div className="labeled-input">
+                    <label for="number">Number</label>
+                    <input id="number" type="number" onChange={handleInputChange} value={inputsValues.number} />
+                    {displayInputError(inputsValues.number)}  
+                </div>
+                <div className="labeled-input">
+                    <label for="mail">Mail</label>
+                    <input id="mail" type="mail" onChange={handleInputChange} value={inputsValues.mail} />
+                    {displayInputError(inputsValues.mail)}   
+                </div>
+                <div className="labeled-input">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" onChange={handleInputChange} value={inputsValues.password} />
+                    {displayInputError(inputsValues.password)} 
+                </div> 
+            </form>
             <button onClick={submitForm}>Submit</button>
         </>
     )

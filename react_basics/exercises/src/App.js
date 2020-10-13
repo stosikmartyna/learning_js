@@ -8,6 +8,7 @@ export const App = () => {
       <WordCounter />
       <hr />
       <DynamicForm />
+      <hr />
     </> 
   );
 }

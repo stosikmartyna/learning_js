@@ -1,0 +1,18 @@
+.labeled-input {
+    margin-bottom: .5rem;
+}
+
+.labeled-input label {
+    display: block;
+}
+
+.input-error {
+    color: red;
+    display: block;
+    font-size: smaller;
+    margin-bottom: .5rem;
+}
+
+button {
+    margin-left: 3rem;
+}
