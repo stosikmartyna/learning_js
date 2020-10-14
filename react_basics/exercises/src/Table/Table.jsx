@@ -35,6 +35,15 @@ export class Table extends React.Component {
     this.setState(updatedState);
   }
 
+  validateInputs = () => {
+    return (
+      this.state.inputsValues.name.trim() !== '' 
+      && this.state.inputsValues.surname.trim() !== '' 
+      && this.state.inputsValues.age.trim() !== '' 
+      && this.state.inputsValues.mail.trim() !== ''
+    )
+  }
+
   render() {
     const {inputsValues} = this.state;
 
@@ -45,8 +54,8 @@ export class Table extends React.Component {
           <input id="surname" type="text" placeholder="Surname" value={inputsValues.surname} onChange={this.handleInputChange} />
           <input id="age" type="number" placeholder="Age" value={inputsValues.age} onChange={this.handleInputChange} />
           <input id="mail" type="mail" placeholder="Mail" value={inputsValues.mail} onChange={this.handleInputChange} />
-          <button onClick={this.addData}>Add</button>
         </div>
+        <button onClick={this.addData} disabled={!this.validateInputs()}>Submit</button>
         <table>
           <thead>
             <tr>

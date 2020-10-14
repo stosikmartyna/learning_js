@@ -7,24 +7,15 @@
     outline: none;
 }
 
-.form button {
-    background-color: #363537;
-    border: none;
-    border-radius: 5px;
-    color: #e9ecef;
-    cursor: pointer;
-    outline: none;
-    padding: .3rem .7rem;
-}
-
-.form button:hover {
-    background-color: #262527;
+button {
+    display: block;
+    margin: 1rem auto;
 }
 
 table {
     border-collapse: collapse;
     color: #363537;
-    margin: 1rem auto;
+    margin: 0 auto;
     width: 60vw;
 }
 
@@ -38,14 +29,4 @@ th {
 td {
     padding: 0 .5rem;
     text-align: center;
-}
-
-.remove {
-    background-color: #363537;
-    border: none;
-    border-radius: 60px;
-    color: #e9ecef;
-    cursor: pointer;
-    outline: none;
-    padding: .5rem .7rem;
 }
