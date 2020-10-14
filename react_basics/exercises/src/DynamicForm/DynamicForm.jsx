@@ -44,22 +44,22 @@ export const DynamicForm = () => {
         <>
             <form>
                 <div className="labeled-input">
-                    <label for="text">Text</label>
+                    <label htmlFor="text">Text</label>
                     <input id="text" type="text" onChange={handleInputChange} value={inputsValues.text} />
                     {displayInputError(inputsValues.text)}  
                 </div>
                 <div className="labeled-input">
-                    <label for="number">Number</label>
+                    <label htmlFor="number">Number</label>
                     <input id="number" type="number" onChange={handleInputChange} value={inputsValues.number} />
                     {displayInputError(inputsValues.number)}  
                 </div>
                 <div className="labeled-input">
-                    <label for="mail">Mail</label>
+                    <label htmlFor="mail">Mail</label>
                     <input id="mail" type="mail" onChange={handleInputChange} value={inputsValues.mail} />
                     {displayInputError(inputsValues.mail)}   
                 </div>
                 <div className="labeled-input">
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input id="password" type="password" onChange={handleInputChange} value={inputsValues.password} />
                     {displayInputError(inputsValues.password)} 
                 </div> 
