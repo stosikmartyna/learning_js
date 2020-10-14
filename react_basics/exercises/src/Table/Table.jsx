@@ -35,6 +35,13 @@ export class Table extends React.Component {
     this.setState(updatedState);
   }
 
+  removeData = (elementToRemove) => {
+    this.setState({
+      ...this.state,
+      userData: this.state.userData.filter(element => element !== elementToRemove)
+    })
+  }
+
   validateInputs = () => {
     return (
       this.state.inputsValues.name.trim() !== '' 
@@ -70,11 +77,12 @@ export class Table extends React.Component {
             {this.state.userData.map((user, index) => {
               return (
                 <tr key={index}>
-                  <td>{index + 1}</td>  
-                  <td>{user.name}</td>
-                  <td>{user.surname}</td>  
-                  <td>{user.age}</td>
-                  <td>{user.mail}</td>
+                  <td key={index + 1}>{index + 1}</td>  
+                  <td key={user.name}>{user.name}</td>
+                  <td key={user.surname}>{user.surname}</td>  
+                  <td key={user.age}>{user.age}</td>
+                  <td key={user.mail}>{user.mail}</td>
+                  <td><button onClick={() => this.removeData(user)}>X</button></td>
                 </tr>
               )
             })}
