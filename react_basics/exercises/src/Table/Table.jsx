@@ -29,7 +29,7 @@ export class Table extends React.Component {
 
   addData = () => {
     const updatedState = {
-      ...this.state,
+      inputsValues: initialState,
       userData: [...this.state.userData, this.state.inputsValues],
     }
     this.setState(updatedState);
