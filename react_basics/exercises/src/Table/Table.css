@@ -1,0 +1,51 @@
+.form {
+    text-align: center;
+}
+
+.form input {
+    margin-right: .3rem;
+    outline: none;
+}
+
+.form button {
+    background-color: #363537;
+    border: none;
+    border-radius: 5px;
+    color: #e9ecef;
+    cursor: pointer;
+    outline: none;
+    padding: .3rem .7rem;
+}
+
+.form button:hover {
+    background-color: #262527;
+}
+
+table {
+    border-collapse: collapse;
+    color: #363537;
+    margin: 1rem auto;
+    width: 60vw;
+}
+
+th {
+    background-color: #f0f0f0;
+    border: none;
+    line-height: 2;
+    padding: .5rem 0 .5rem 1rem; 
+}
+
+td {
+    padding: 0 .5rem;
+    text-align: center;
+}
+
+.remove {
+    background-color: #363537;
+    border: none;
+    border-radius: 60px;
+    color: #e9ecef;
+    cursor: pointer;
+    outline: none;
+    padding: .5rem .7rem;
+}
