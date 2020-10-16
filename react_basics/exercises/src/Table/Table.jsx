@@ -39,6 +39,17 @@ export class Table extends React.Component {
     });
   } 
 
+  handleCheckboxChange = (event) => {
+    console.log(event.target)
+    this.setState({
+      ...this.state,
+      inputsValues: {
+        ...this.state.inputsValues,
+        isVIP: !this.state.inputsValues.isVIP 
+      }
+    });
+  }
+
   addData = () => {
     const updatedState = {
       inputsValues: initialState,
@@ -73,6 +84,10 @@ export class Table extends React.Component {
           <input id="surname" type="text" placeholder="Surname" value={inputsValues.surname} onChange={this.handleInputChange} />
           <input id="age" type="number" placeholder="Age" value={inputsValues.age} onChange={this.handleInputChange} />
           <input id="mail" type="mail" placeholder="Mail" value={inputsValues.mail} onChange={this.handleInputChange} />
+          <label>
+            VIP
+            <input id="isVIP" type="checkbox" value={inputsValues.isVIP} onChange={this.handleCheckboxChange} checked={this.state.inputsValues.isVIP}/>
+          </label>
         </div>
         <button className="form-button" onClick={this.addData} disabled={!this.validateInputs()}>Submit</button>
         <table>
