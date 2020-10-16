@@ -74,7 +74,7 @@ export class Table extends React.Component {
           <input id="age" type="number" placeholder="Age" value={inputsValues.age} onChange={this.handleInputChange} />
           <input id="mail" type="mail" placeholder="Mail" value={inputsValues.mail} onChange={this.handleInputChange} />
         </div>
-        <button onClick={this.addData} disabled={!this.validateInputs()}>Submit</button>
+        <button className="form-button" onClick={this.addData} disabled={!this.validateInputs()}>Submit</button>
         <table>
           <thead>
             <tr>
@@ -95,7 +95,7 @@ export class Table extends React.Component {
                   <td key={user.age}>{user.age}</td>
                   <td key={user.mail}>{user.mail}</td>
                   <td>
-                    <button onClick={() => this.removeData(user)} disabled={user.isVIP}>
+                    <button className="form-button" onClick={() => this.removeData(user)} disabled={user.isVIP}>
                       X
                     </button>
                   </td>

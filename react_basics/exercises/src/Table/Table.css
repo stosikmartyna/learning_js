@@ -7,7 +7,7 @@
     outline: none;
 }
 
-button {
+.form-button {
     display: block;
     margin: 1rem auto;
 }

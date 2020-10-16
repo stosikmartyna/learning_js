@@ -64,7 +64,7 @@ export const DynamicForm = () => {
                     {displayInputError(inputsValues.password)} 
                 </div> 
             </form>
-            <button onClick={submitForm}>Submit</button>
+            <button className="submit-button" onClick={submitForm}>Submit</button>
         </>
     )
 }
