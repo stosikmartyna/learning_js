@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Jonathan",
+        "surname": "Groff",
+        "age": "56",
+        "mail": "jonathan.groff@gmail.com",
+        "isVIP": true
+    },
+    {
+        "name": "Maggie",
+        "surname": "Galindo",
+        "age": "16",
+        "mail": "maggie.galindo@gmail.com",
+        "isVIP": true
+    },
+    {
+        "name": "Luis",
+        "surname": "Staranger",
+        "age": "74",
+        "mail": "luis.staranger@gmail.com",
+        "isVIP": true
+    },
+    {
+        "name": "Alice",
+        "surname": "Judly",
+        "age": "66",
+        "mail": "alice.judly@gmail.com",
+        "isVIP": true
+    }
+]

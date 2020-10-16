@@ -6,6 +6,7 @@ const initialState = {
   surname: '',
   age: '',
   mail: '',
+  isVIP: false,
 }
 
 export class Table extends React.Component {
@@ -13,8 +14,19 @@ export class Table extends React.Component {
     super();
     this.state = {
       inputsValues: initialState,
-      userData: [],
+      usersData: [],
     }
+  }
+
+  getUsersData = () => {
+    fetch('./users.json')
+      .then(response => response.json())
+      .then(response => this.setState({...this.state, usersData: response}))
+      .catch(err => console.warn(err))
+  }
+
+  componentDidMount() {
+    this.getUsersData();
   }
 
   handleInputChange = (event) => {
@@ -30,7 +42,7 @@ export class Table extends React.Component {
   addData = () => {
     const updatedState = {
       inputsValues: initialState,
-      userData: [...this.state.userData, this.state.inputsValues],
+      usersData: [...this.state.usersData, this.state.inputsValues],
     }
     this.setState(updatedState);
   }
@@ -38,7 +50,7 @@ export class Table extends React.Component {
   removeData = (elementToRemove) => {
     this.setState({
       ...this.state,
-      userData: this.state.userData.filter(element => element !== elementToRemove)
+      usersData: this.state.usersData.filter(element => element !== elementToRemove)
     })
   }
 
@@ -74,7 +86,7 @@ export class Table extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.userData.map((user, index) => {
+            {this.state.usersData.map((user, index) => {
               return (
                 <tr key={index}>
                   <td key={index + 1}>{index + 1}</td>  
@@ -82,7 +94,11 @@ export class Table extends React.Component {
                   <td key={user.surname}>{user.surname}</td>  
                   <td key={user.age}>{user.age}</td>
                   <td key={user.mail}>{user.mail}</td>
-                  <td><button onClick={() => this.removeData(user)}>X</button></td>
+                  <td>
+                    <button onClick={() => this.removeData(user)} disabled={user.isVIP}>
+                      X
+                    </button>
+                  </td>
                 </tr>
               )
             })}
