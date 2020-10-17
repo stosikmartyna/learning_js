@@ -15,14 +15,30 @@ export class Table extends React.Component {
     this.state = {
       inputsValues: initialState,
       usersData: [],
+      isLoading: false,
     }
   }
 
-  getUsersData = () => {
-    fetch('./users.json')
-      .then(response => response.json())
-      .then(response => this.setState({...this.state, usersData: response}))
-      .catch(err => console.warn(err))
+  setIsLoading = (boolean) => {
+    this.setState({
+      ...this.state,
+      isLoading: boolean
+    });
+  }
+
+  getUsersData = async() => {
+    this.setIsLoading(true);
+    try {
+      const response = await fetch('./users.json');
+      const usersData = await response.json();
+      this.setState({...this.state, usersData: usersData});
+    } 
+    catch (err) {
+      console.warn(err);
+    }
+    finally {
+      this.setIsLoading(false);
+    }
   }
 
   componentDidMount() {
@@ -119,6 +135,7 @@ export class Table extends React.Component {
             })}
           </tbody>            
         </table>
+        {this.state.isLoading && <p className="loading">Loading...</p>}
       </>
     )
   }
